@@ -26,7 +26,7 @@ test("random_diff_and_restore",() => {
 
     expect(LiCoPatchApplier.ApplyAll(init,diffArray)).toBe(prev);
 });
-test("diff_and_restore",() => {
+test("diff_and_restore_1",() => {
     const A = "vec3 c = vec3(1.0,1.0,1.0);";
     const B = "vec3 c = vec3(1.0,0.5,1.0);";
     const C = "vec3 d = vec3(1.0,0.5,1.0);";
@@ -43,3 +43,13 @@ test("diff_and_restore",() => {
     diffArray.push(LiCoPatchGenerator.Generate(F,G));
     expect(LiCoPatchApplier.ApplyAll(A,diffArray)).toBe(G);
 });
+test("clear_and_restore",() => {
+    const A = "vec3 c = vec3(1.0,1.0,1.0);";
+    const B = "";
+    const C = "vec3 d = vec3(1.0,0.5,1.0);";
+    let diffArray:LiCoPatchArray = new Array<LiCoPatch>();
+    diffArray.push(LiCoPatchGenerator.Generate(A,B));
+    diffArray.push(LiCoPatchGenerator.Generate(B,C));
+    expect(LiCoPatchApplier.ApplyAll(A,diffArray)).toBe(C);
+});
+
