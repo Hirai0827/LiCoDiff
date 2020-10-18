@@ -1,0 +1,27 @@
+{
+  "name": "licodiff",
+  "version": "1.0.0",
+  "main": "build/index.js",
+  "author": "hirai <ryu1999827@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "test": "jest"
+  },
+  "files": [
+    "build"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-typescript": "^7.12.1",
+    "@types/jest": "^26.0.14",
+    "babel-jest": "^26.5.2",
+    "jest": "^26.5.3",
+    "typescript": "^4.0.3"
+  },
+  "dependencies": {
+    "fast-diff": "^1.2.0"
+  }
+}
